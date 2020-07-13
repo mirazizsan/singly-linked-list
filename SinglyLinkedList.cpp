@@ -79,6 +79,36 @@ void SinglyLinkedList::pop_back()
 	}
 }
 
+int& SinglyLinkedList::front()
+{
+	try
+	{
+		if (_size == 0)
+			throw std::out_of_range("ERROR: Singly Linked List is empty!");
+
+		return _head->data;
+	}
+	catch (const std::exception&e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+int& SinglyLinkedList::back()
+{
+	try
+	{
+		if (_size == 0)
+			throw std::out_of_range("ERROR: Singly Linked List is empty!");
+
+		return _tail->data;
+	}
+	catch (const std::exception&e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
 int SinglyLinkedList::size()
 {
 	return _size;
@@ -97,7 +127,7 @@ void SinglyLinkedList::Average()
 		if (!_size == 0)
 			throw std::out_of_range("ERROR: Singly Linked List is empty!");
 
-		int average = 0;
+		float average = 0;
 
 		Node* temp;
 		temp = _tail;

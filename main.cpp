@@ -6,7 +6,8 @@ void PrintDefaultList(SinglyLinkedList& list);
 
 int main()
 {
-	int n = 0, element;
+	int n = 0;
+	int element;
 
 	SinglyLinkedList list;
 
@@ -17,8 +18,18 @@ int main()
 
 	for (int i = 0; i < n; ++i)
 	{
+		/*cout << i + 1 << endl;
+		cin >> element;
+		list.push_front(element);*/
+
 		list.push_back(rand() % 101);
 	}
+
+	system("cls");
+
+	PrintDefaultList(list);
+
+	cout << "======================================" << endl;
 
 	list.Average();
 
@@ -28,13 +39,18 @@ int main()
 
 void PrintDefaultList(SinglyLinkedList& list)
 {
-	/*SinglyLinkedList* temp;
-	temp = _tail;
+	SinglyLinkedList temp_list;
 
-	while (temp != nullptr)
+	while (!list.empty())
 	{
-		std::cout << temp->data << std::endl;
+		cout << list.back() << endl;
+		temp_list.push_front(list.back());
+		list.pop_back();
+	}
 
-		temp = temp->next;
-	}*/
+	while (!temp_list.empty())
+	{
+		list.push_front(temp_list.back());
+		temp_list.pop_back();
+	}
 }

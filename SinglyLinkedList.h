@@ -32,7 +32,7 @@ public:
 	int size();
 	bool empty();
 
-	void Average();
+	double Average();
 
 private:
 	Node* _head;

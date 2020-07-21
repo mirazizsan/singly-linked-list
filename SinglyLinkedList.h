@@ -20,7 +20,8 @@ public:
 		Node* next;
 	};
 
-	SinglyLinkedList() : _head(nullptr), _tail(nullptr), _size(0)
+	SinglyLinkedList() : _head(nullptr), _tail(nullptr),
+	average(0), _size(0)
 	{}
 
 	void push_front(int);
@@ -33,10 +34,14 @@ public:
 	bool empty();
 
 	double Average();
+	void DeleteBelowAverage();
 
 private:
 	Node* _head;
 	Node* _tail;
+
+	double average;
+	int SumBelowAverage;
 
 	int _size;
 };

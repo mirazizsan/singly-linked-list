@@ -33,6 +33,10 @@ int main()
 
 	list.Average();
 
+	cout << "======================================" << endl;
+
+	list.DeleteBelowAverage();
+
 	system("pause");
 	return 0;
 }

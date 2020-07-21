@@ -125,8 +125,6 @@ double SinglyLinkedList::Average()
 		if (_size == 0)
 			throw std::out_of_range("ERROR: Singly Linked List is empty!");
 
-		double average = 0;
-
 		Node* temp;
 		temp = _tail;
 
@@ -142,4 +140,26 @@ double SinglyLinkedList::Average()
 	{
 		std::cout << e.what() << std::endl;
 	}
+}
+
+void SinglyLinkedList::DeleteBelowAverage()
+{
+	Node* temp;
+	temp = _tail;
+
+	while (temp->next != nullptr)
+	{
+		if (temp->data < average)
+		{
+			_tail = _tail->next;
+			SumBelowAverage++;
+			delete temp;
+		}
+		else
+		{
+			_tail = _tail->next;
+		}
+	}
+
+	std::cout << SumBelowAverage << std::endl;
 }
